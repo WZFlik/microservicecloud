@@ -20,7 +20,7 @@ import com.holt.springcloud.service.DeptService;
  */
 @RestController
 public class DeptController {
-//      注入入DeptService
+//注入入DeptService
 	@Autowired
 	private DeptService service;
 
