@@ -9,7 +9,7 @@ import com.holt.spirngcloud.entities.Dept;
 /**@author hot
  * @version 创建时间：2020年3月11日
  *Dept部门数据模型对应的Mapper接口文件
- * 
+ * ss
  */
 @Mapper
 public interface DeptMapper {
