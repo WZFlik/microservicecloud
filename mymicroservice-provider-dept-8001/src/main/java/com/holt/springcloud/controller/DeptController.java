@@ -16,7 +16,7 @@ import com.holt.springcloud.service.DeptService;
  * @author ：hot
  * @date :2020年3月11日 
  * @version： 
- * Dept部门控制器
+ * Dept部门控制器使用了restful风格
  */
 @RestController
 public class DeptController {
@@ -24,17 +24,17 @@ public class DeptController {
 	@Autowired
 	private DeptService service;
 
-	@RequestMapping(value = "/dept/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/dept", method = RequestMethod.POST)
 	public boolean add(@RequestBody Dept dept) {
 		return service.add(dept);
 	}
 
-	@RequestMapping(value = "/dept/get/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/dept/{id}", method = RequestMethod.GET)
 	public Dept get(@PathVariable("id") Long id) {
 		return service.get(id);
 	}
 
-	@RequestMapping(value = "/dept/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/depts", method = RequestMethod.GET)
 	public List list() {
 		return service.list();
 	}
