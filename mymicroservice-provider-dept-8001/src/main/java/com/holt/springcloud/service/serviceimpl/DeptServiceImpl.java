@@ -10,7 +10,7 @@ import com.holt.springcloud.mapper.DeptMapper;
 import com.holt.springcloud.service.DeptService;
 
 /**
- * 
+ * deptService层
  * @author hot
  */
 @Service
