@@ -97,5 +97,7 @@
 		<module>mymicroservice-provider-dept-8001</module>
 		<module>mymicroservice-consumer-dept-80</module>
 		<module>mymicroservice-eureka-7001</module>
+		<module>mymicroservice-eureka-7002</module>
+		<module>mymicroservice-eureka-7003</module>
 	</modules>
 </project>
