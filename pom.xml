@@ -65,9 +65,37 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
+	<!--使用maven插件来允许访问每个工程下的resource目录
+		在application.yml的info：下
+	  -->
+	<build>
+			<!--父工程名字  -->
+		<finalName>mymicroservice</finalName>
+		<resources>
+		<!--允许访问路径  -->
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+				<!--访问的限定符  -->
+					<delimiters>
+						<delimit>$</delimit>
+					</delimiters>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 	<modules>
 		<module>mymicroservice-api</module>
 		<module>mymicroservice-provider-dept-8001</module>
 		<module>mymicroservice-consumer-dept-80</module>
+		<module>mymicroservice-eureka-7001</module>
 	</modules>
 </project>

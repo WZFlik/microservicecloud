@@ -8,6 +8,8 @@ mybatis:
   - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
   configuration:
     map-underscore-to-camel-case: true                      #开其数据库下划线字段转驼峰    
+    
+    
 spring:
    application:
     name: mymicroservicecloud-dept 
@@ -17,6 +19,8 @@ spring:
     url: jdbc:mysql://localhost:3306/cloudDB01              # 数据库名称
     username: root
     password: 123456
+    
+    
     #datasource:
    #   data:                                                 #自动添加表数据到数据库    #  - classpath:sql/*-data.sql    #schema:    #- classpath:sql/*-table.sql                                   #自动构建classpath/sql目录下的sql脚本     #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
     filters: stat,wall,log4j
@@ -34,5 +38,19 @@ spring:
         # 添加过滤规则
         url-pattern: /*
         # 忽略过滤格式
-        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"      
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+# eureka 的注册地址 
+eureka:  client:    serviceUrl:     defaultZone: http://localhost:7001/eureka/
+  instance:    instance-id: mymicroservicecloud-dept:8001   #修改eureka中显示服务的名称    prefer-ip-address: true                     #访问的路径可以显示ip
+
+#配置微服务的信息
+info:
+ app.name: holt.mymicroservice
+ company.name: www.holt.com
+ build.artifactId: $project.artifactId$
+ build.version: $project.version$
+
+  
+     
+            
          
