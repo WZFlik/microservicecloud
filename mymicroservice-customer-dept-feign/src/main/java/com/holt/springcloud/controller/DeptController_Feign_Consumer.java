@@ -14,29 +14,24 @@ import com.holt.spirngcloud.entities.Dept;
 import com.holt.spirngcloud.feignservice.DeptFeignService;
 
 /**
- *@author hot
- *@since 2020年3月11日
- *@version     
- * 对外暴漏的消费者的controller层
+ * @author hot
+ * @since 2020年3月11日
+ * @version 对外暴漏的消费者的controller层
  */
 @RestController
 public class DeptController_Feign_Consumer {
-	
+
 	@Autowired
-	private DeptFeignService feignService ;
-	
-	/**
-	 * 使用restTeplate 连接DeptController的url
-	 * @param dept
-	 * @return
-	 */
+	private DeptFeignService feignService;
+
 	@RequestMapping("/consumer/dept/add")
 	public Boolean addDept(Dept dept) {
 		return feignService.add(dept);
 	}
-	
+
 	/**
-	 *  根据id获取Dept
+	 * 根据id获取Dept
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -45,21 +40,23 @@ public class DeptController_Feign_Consumer {
 		return feignService.get(id);
 
 	}
-	
-	
+
 	@SuppressWarnings("unchecked")
+
 	@GetMapping("/consumer/dept/list")
 	public List<Dept> getList() {
 		System.out.println("*********Feign---list");
 		return feignService.list();
 
 	}
-	
-	
-	
-	
-	
-	
-	
+
+	/*
+	 * @SuppressWarnings("unchecked")
+	 * 
+	 * @GetMapping("/consumer/dept/list") public String getList() {
+	 * System.out.println("*********Feign---list"); return "jjjj";
+	 * 
+	 * }
+	 */
 
 }
