@@ -22,7 +22,9 @@ import com.holt.spirngcloud.entities.Dept;
 public class DeptController_Consumer {
 	//url前缀
 	//TODO
-	private final String PREFIX = "http://localhost:8001";
+//	private final String PREFIX = "http://localhost:8001";
+	private final String PREFIX = "http://mymicroservicecloud-dept";
+	
 	@Autowired
 	private RestTemplate restTemplate;
 	
