@@ -15,7 +15,7 @@
 			<artifactId>mymicroservice-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<!--feign相关  -->
+		<!--feign负载均线  -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-feign</artifactId>
