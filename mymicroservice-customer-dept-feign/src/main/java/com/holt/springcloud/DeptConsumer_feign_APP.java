@@ -15,6 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableEurekaClient        //eureka客户端
 @EnableFeignClients(basePackages = {"com.holt.spirngcloud.feignservice"})
+@ComponentScan(basePackages = {"com.holt.spirngcloud.feignservice","com.holt.springcloud.controller"})
 public class DeptConsumer_feign_APP {
 	public static void main(String[] args) {
 		SpringApplication.run(DeptConsumer_feign_APP.class, args);
