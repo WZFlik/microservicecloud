@@ -101,5 +101,6 @@
 		<module>mymicroservice-eureka-7003</module>
 		<module>mymicroservice-provider-dept-8002</module>
 		<module>mymicroservice-provider-dept-8003</module>
+		<module>mymicroservice-customer-dept-feign</module>
 	</modules>
 </project>
