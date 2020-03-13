@@ -16,7 +16,8 @@ import com.holt.spirngcloud.entities.Dept;
  *@version     
  *
  */
-@FeignClient("mymicroservicecloud-dept")
+//访问mymicroservicecloud-dept时开启负载均衡，给这个调用接口的这个服务设置熔断机制
+@FeignClient(value="mymicroservicecloud-dept",fallbackFactory = DeptFeignServiceFallbackFactory.class)
 public interface DeptFeignService {
 
 	@RequestMapping(value = "/dept/add", method = RequestMethod.POST)
