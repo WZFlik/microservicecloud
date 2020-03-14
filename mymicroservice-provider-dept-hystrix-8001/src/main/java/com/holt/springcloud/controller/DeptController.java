@@ -1,5 +1,6 @@
 package com.holt.springcloud.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,7 @@ public class DeptController {
 		return dept;
 	}
 
+	@HystrixCommand(fallbackMethod = "processHystrix_LIST")
 	@RequestMapping(value = "/dept/list", method = RequestMethod.GET)
 	public List list() {
 		return service.list();
@@ -56,6 +58,15 @@ public class DeptController {
 	public Dept processHystrix_Get(@PathVariable("id") Long id) {
 		return new Dept().setDeptno(id).setDname("该ID：" + id + "没有没有对应的信息,null--@HystrixCommand")
 				.setDbSource("no this database in MySQL");
+	}
+	
+	public List<Dept> processHystrix_LIST() {
+		List<Dept> list = new ArrayList();
+		
+		Dept dept =  new Dept().setDeptno(0L).setDname("该ID：" + 0L + "没有没有对应的信息,null--@HystrixCommand_list")
+				.setDbSource("no this database in MySQL");
+		list.add(dept);
+		return list;
 	}
 	
 }

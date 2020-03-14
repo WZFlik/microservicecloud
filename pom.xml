@@ -103,5 +103,8 @@
 		<module>mymicroservice-provider-dept-8003</module>
 		<module>mymicroservice-customer-dept-feign</module>
 		<module>mymicroservice-provider-dept-hystrix-8001</module>
+		<module>mymicroservice-hystrix-dashborad-9001</module>
+		<module>mymicroservice-zuul-gateway-9527</module>
+		<module>Gitest</module>
 	</modules>
 </project>

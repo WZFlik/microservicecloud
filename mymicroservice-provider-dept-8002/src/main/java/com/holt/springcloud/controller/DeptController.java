@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.holt.spirngcloud.entities.Dept;
 import com.holt.springcloud.service.DeptService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 /**
  * @author ：hot
@@ -30,13 +31,20 @@ public class DeptController {
 		
 	}
 
+	@HystrixCommand(fallbackMethod = "HystrixCommand_Get")
 	@RequestMapping(value = "/dept/get/{id}", method = RequestMethod.GET)
 	public Dept get(@PathVariable("id") Long id) {
 		return service.get(id);
 	}
-
+	
+//	@HystrixCommand
 	@RequestMapping(value = "/dept/list", method = RequestMethod.GET)
 	public List list() {
 		return service.list();	
+	}
+	
+	public Dept HystrixCommand_Get(@PathVariable("id") Long id) {
+		
+		return new Dept().setDeptno(id).setDname("null").setDbSource("NoSource");
 	}
 }
